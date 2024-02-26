@@ -33,17 +33,12 @@ galleryList.style.display = "flex";
 galleryList.style.justifyContent = "center";
 galleryList.style.gap = "24px";
 galleryList.style.listStyle = "none";
+galleryList.style.flexWrap = "wrap";
 
+const markup = images
+  .map(image => `<li class="gallery-item">
+    <img class="gallery-image" src="${image.url}" alt="${image.alt}" width="360", height ="300">
+  </li>`)
+  .join('');
 
-  
-images.slice(0, -3).forEach((image) => {
-  const li = document.createElement('li');
-  const img = document.createElement('img');
-  img.src = image.url;
-  img.alt = image.alt;
-  img.classList.add('pic');
-  img.style.height = "300px";
-  img.style.width = "360px";
-  li.append(img);
-  galleryList.append(li);
-});
+galleryList.insertAdjacentHTML('beforeend', markup);
