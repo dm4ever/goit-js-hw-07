@@ -42,3 +42,4 @@ const markup = images
   .join('');
 
 galleryList.insertAdjacentHTML('beforeend', markup);
+
